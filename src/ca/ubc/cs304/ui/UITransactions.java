@@ -12,6 +12,7 @@ import javax.swing.event.ChangeListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
+import java.sql.SQLWarning;
 import java.util.ArrayList;
 
 public class UITransactions extends JFrame {
@@ -42,6 +43,9 @@ public class UITransactions extends JFrame {
     private JLabel projectLbl;
     private JList agencyList;
     private JLabel insertedLbl;
+    private JTextField deleteIn;
+    private JButton deleteBtn;
+    private JLabel deleteLbl;
 
     public UITransactions(InfectiousDiseases infectiousDiseases) {
         super("Pandemic Dashboard");
@@ -142,6 +146,23 @@ public class UITransactions extends JFrame {
                     //throw new NullPointerException();
                 } catch (NullPointerException e) {
                     System.out.println("[EXCEPTION] SQL/Connection Error");
+                }
+            }
+        });
+        deleteBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                String[] cleanIn = deleteIn.getText().split("[^A-Za-z0-9 ].");
+                if (!String.valueOf(cleanIn[0].charAt(cleanIn[0].length()-1)).matches("[A-Za-z0-9_]"))
+                    cleanIn[0] = cleanIn[0].substring(0, cleanIn[0].length()-1);
+                String agencyName = cleanIn[0];
+                System.out.println(agencyName);
+
+                try {
+                    infectiousDiseases.deleteAgency(agencyName);
+                } catch (SQLException e){
+                    deleteLbl.setText(e.getMessage());
+                    System.out.println(e.getMessage());
                 }
             }
         });

@@ -9,6 +9,7 @@ import ca.ubc.cs304.ui.UITransactions;
 import ca.ubc.cs304.ui.UITransactionsOld;
 
 import java.sql.SQLException;
+import java.sql.SQLWarning;
 import java.util.ArrayList;
 
 /**
@@ -53,7 +54,13 @@ public class InfectiousDiseases implements UITransactionsDelegate, LoginWindowDe
      *
      * Delete agency with given agency name
      */
-    public void deleteAgency(String name) { dbHandler.deleteAgency(name); }
+    public void deleteAgency(String name) throws SQLException {
+        try {
+            dbHandler.deleteAgency(name);
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
 
     /**
      * UIDelegate Implementation

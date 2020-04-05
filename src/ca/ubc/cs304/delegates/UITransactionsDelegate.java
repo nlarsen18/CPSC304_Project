@@ -6,6 +6,7 @@ import ca.ubc.cs304.model.NestedAgrResultModel;
 import ca.ubc.cs304.model.TreatsModel;
 
 import java.sql.SQLException;
+import java.sql.SQLWarning;
 import java.util.ArrayList;
 
 /**
@@ -33,7 +34,7 @@ public interface UITransactionsDelegate {
      * Division Query
      */
 
-    public void deleteAgency(String name);
+    public void deleteAgency(String name) throws SQLException;
     public void insertAgency(AgencyModel model) throws SQLException;
     public void insertDisease(DiseaseModel model) throws SQLException;
     public void insertTreats(TreatsModel model) throws SQLException;

@@ -1,11 +1,6 @@
 package ca.ubc.cs304.database;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 
 import ca.ubc.cs304.model.AgencyModel;
@@ -56,7 +51,7 @@ public class DatabaseConnectionHandler76 {
         }
     }
 
-    public void deleteAgency(String name){
+    public void deleteAgency(String name) throws SQLException {
         try {
             PreparedStatement ps = connection.prepareStatement("DELETE FROM agency WHERE agency_Name = ?");
             ps.setString(1, name);
@@ -72,6 +67,7 @@ public class DatabaseConnectionHandler76 {
         } catch (SQLException e) {
             System.out.println(EXCEPTION_TAG + " " + e.getMessage());
             rollbackConnection();
+            throw e;
         }
     }
 
