@@ -38,7 +38,7 @@ public class LoginWindow extends JFrame implements ActionListener {
 	private LoginWindowDelegate delegate;
 
 	public LoginWindow() {
-		super("User Login");
+		super("Agency Admin Login");
 	}
 
 	public void showFrame(LoginWindowDelegate delegate) {
@@ -60,6 +60,8 @@ public class LoginWindow extends JFrame implements ActionListener {
 		// layout components using the GridBag layout manager
 		GridBagLayout gb = new GridBagLayout();
 		GridBagConstraints c = new GridBagConstraints();
+
+		contentPane.setPreferredSize(new Dimension(400, 150));
 
 		contentPane.setLayout(gb);
 		contentPane.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));

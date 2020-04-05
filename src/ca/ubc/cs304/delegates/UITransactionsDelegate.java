@@ -37,8 +37,8 @@ public interface UITransactionsDelegate {
     public void insertDisease(DiseaseModel model);
     public void insertTreats(TreatsModel model);
     public void updateAgency(String name, int num_of_employees);
-    public ArrayList<String> selectDiseaseR0(float r0);
-    public ArrayList<String> projectAgencyName();
+    public ArrayList<String> selectDiseaseR0(double r0);
+    public ArrayList<String> projectAgency(String col);
     public ArrayList<String> findHospitalsThatTreat(String disease_name);
     public ArrayList<Integer> countAgencies();
     public ArrayList<NestedAgrResultModel> avgR0PerType();

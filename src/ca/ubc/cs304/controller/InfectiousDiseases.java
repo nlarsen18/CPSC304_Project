@@ -1,11 +1,12 @@
 package ca.ubc.cs304.controller;
 
 import ca.ubc.cs304.database.DatabaseConnectionHandler76;
+import ca.ubc.cs304.delegates.LoginWindowDelegate;
 import ca.ubc.cs304.delegates.UITransactionsDelegate;
-import ca.ubc.cs304.model.AgencyModel;
-import ca.ubc.cs304.model.DiseaseModel;
-import ca.ubc.cs304.model.NestedAgrResultModel;
-import ca.ubc.cs304.model.TreatsModel;
+import ca.ubc.cs304.model.*;
+import ca.ubc.cs304.ui.LoginWindow;
+import ca.ubc.cs304.ui.UITransactions;
+import ca.ubc.cs304.ui.UITransactionsOld;
 
 import java.util.ArrayList;
 
@@ -13,8 +14,36 @@ import java.util.ArrayList;
  * This is the main controller class that will orchestrate everything.
  */
 
-public class InfectiousDiseases implements UITransactionsDelegate {
+public class InfectiousDiseases implements UITransactionsDelegate, LoginWindowDelegate {
     private DatabaseConnectionHandler76 dbHandler = null;
+    private LoginWindow loginWindow = null;
+
+    private void start(){
+        loginWindow = new LoginWindow();
+        loginWindow.showFrame(this);
+    }
+
+    public void login(String username, String password) {
+        boolean didConnect = dbHandler.login(username, password);
+
+        if (didConnect) {
+            // Once connected, remove login window and start text transaction flow
+            loginWindow.dispose();
+
+            UITransactions transaction = new UITransactions(this);
+            transaction.setVisible(true);
+            //transaction.showFrame(this);
+
+        } else {
+            loginWindow.handleLoginFailed();
+
+            if (loginWindow.hasReachedMaxLoginAttempts()) {
+                loginWindow.dispose();
+                System.out.println("You have exceeded your number of allowed attempts");
+                System.exit(-1);
+            }
+        }
+    }
 
     public InfectiousDiseases() { dbHandler = new DatabaseConnectionHandler76(); }
 
@@ -58,14 +87,14 @@ public class InfectiousDiseases implements UITransactionsDelegate {
      *
      * Select all disease names with an R0 >= r0
      */
-    public ArrayList<String> selectDiseaseR0(float r0) { return dbHandler.selectDiseaseR0(r0); }
+    public ArrayList<String> selectDiseaseR0(double r0) { return dbHandler.selectDiseaseR0(r0); }
 
     /**
      * UIDelegate Implementation
      *
      * Project Agency Names
      */
-    public ArrayList<String> projectAgencyName() { return dbHandler.projectAgencyName(); }
+    public ArrayList<String> projectAgency(String col) { return dbHandler.projectAgencyName(col); }
 
     /**
      * UIDelegate Implementation
@@ -104,10 +133,8 @@ public class InfectiousDiseases implements UITransactionsDelegate {
         System.exit(0);
     }
 
-    /**
-     * DO WE NEED THIS??
-     * public static void main(String args[]) {
-     *     InfectiousDiseases infectiousdiseases = new InfectiousDiseases();
-     * }
-     */
+    public static void main(String args[]) {
+        InfectiousDiseases infectiousdiseases = new InfectiousDiseases();
+        infectiousdiseases.start();
+    }
 }

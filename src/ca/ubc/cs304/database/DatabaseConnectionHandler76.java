@@ -29,6 +29,23 @@ public class DatabaseConnectionHandler76 {
         }
     }
 
+    public boolean login(String username, String password) {
+        try {
+            if (connection != null) {
+                connection.close();
+            }
+
+            connection = DriverManager.getConnection(ORACLE_URL, username, password);
+            connection.setAutoCommit(false);
+
+            System.out.println("\nConnected to Oracle!");
+            return true;
+        } catch (SQLException e) {
+            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+            return false;
+        }
+    }
+
     public void close() {
         try {
             if (connection != null) {
@@ -137,13 +154,13 @@ public class DatabaseConnectionHandler76 {
      * This function performs the required Selection Query.
      * It allows you to select all disease R0's with an R0 >= input
      */
-    public ArrayList<String> selectDiseaseR0(float r0){
+    public ArrayList<String> selectDiseaseR0(double r0){
         ArrayList<String> result = new ArrayList<String>();
 
         try{
 
             Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT disease_Scientific_Name FROM disease WHERE disease_R0 >= ?");
+            ResultSet rs = stmt.executeQuery("SELECT disease_Scientific_Name FROM disease WHERE disease_R0 >= " + r0);
 
             while(rs.next()){
                 result.add(rs.getString("disease_Scientific_Name"));
@@ -162,16 +179,18 @@ public class DatabaseConnectionHandler76 {
      * This function performs the required projection Query.
      * It projects the names of the agencies.
      */
-    public ArrayList<String> projectAgencyName(){
+    public ArrayList<String> projectAgencyName(String col){
         ArrayList<String> result = new ArrayList<String>();
 
         try{
             Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT agency_Name FROM agency");
+            ResultSet rs = stmt.executeQuery("SELECT " + col + " FROM agency");
 
             while(rs.next()){
-                result.add(rs.getString("agency_Name"));
+                System.out.println(rs.getString(col));
+                result.add(rs.getString(col));
             }
+            System.out.println(result);
 
             rs.close();
             stmt.close();

@@ -8,7 +8,7 @@
       </database-info>
       <case-sensitivity plain-identifiers="upper" quoted-identifiers="exact" />
       <secret-storage>master_key</secret-storage>
-      <user-name>ora_larsen13</user-name>
+      <user-name>ora_nmorriss</user-name>
       <schema-mapping>
         <introspection-scope>
           <node kind="schema">
@@ -19,12 +19,12 @@
       </schema-mapping>
       <ssh-properties>
         <enabled>true</enabled>
-        <proxy-host>thetis.students.cs.ubc.ca</proxy-host>
+        <proxy-host>remote.students.cs.ubc.ca</proxy-host>
         <local-port>1522</local-port>
         <secret-storage>master_key</secret-storage>
-        <user>larsen13</user>
-        <use-password>true</use-password>
-        <auth-type>PASSWORD</auth-type>
+        <user>nmorriss</user>
+        <use-password>false</use-password>
+        <auth-type>KEY_PAIR</auth-type>
       </ssh-properties>
     </data-source>
   </component>

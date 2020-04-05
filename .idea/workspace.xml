@@ -2,17 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04db61e5-70c0-457e-9b75-2aeecfbda56b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ca/ubc/cs304/model/NestedAgrResultModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ca/ubc/cs304/model/TreatsModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/ojdbc8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ca/ubc/cs304/ui/UITransactions.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ca/ubc/cs304/ui/UITransactionsOld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/4173d5fa-483a-466b-a0a4-48bb6b2a202b.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4173d5fa-483a-466b-a0a4-48bb6b2a202b.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4173d5fa-483a-466b-a0a4-48bb6b2a202b/storage_v2/_src_/schema/ORA_LARSEN13.YhwM8w.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4173d5fa-483a-466b-a0a4-48bb6b2a202b/storage_v2/_src_/schema/ORA_LARSEN13.YhwM8w.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/ca/ubc/cs304/sql/scripts/databaseSetup.sql" beforeDir="false" afterPath="$PROJECT_DIR$/bin/ca/ubc/cs304/sql/scripts/databaseSetup.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/ca/ubc/cs304/sql/scripts/databaseSetup76.sql" beforeDir="false" afterPath="$PROJECT_DIR$/bin/ca/ubc/cs304/sql/scripts/databaseSetup76.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ca/ubc/cs304/controller/InfectiousDiseases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ca/ubc/cs304/controller/InfectiousDiseases.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ca/ubc/cs304/database/DatabaseConnectionHandler76.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ca/ubc/cs304/database/DatabaseConnectionHandler76.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ca/ubc/cs304/delegates/UITransactionsDelegate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ca/ubc/cs304/delegates/UITransactionsDelegate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ca/ubc/cs304/model/DiseaseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ca/ubc/cs304/model/DiseaseModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ca/ubc/cs304/sql/scripts/databaseSetup76.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/ca/ubc/cs304/sql/scripts/databaseSetup76.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ca/ubc/cs304/ui/LoginWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ca/ubc/cs304/ui/LoginWindow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ca/ubc/cs304/ui/UITransactions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ca/ubc/cs304/ui/UITransactions.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +43,13 @@
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="@dbhost.students.cs.ubc.ca" type="feb32156:DbDataSourceImpl" />
-        <item name="ORA_LARSEN13: schema" type="3abd1b6a:OraImplModel$Schema" />
+        <item name="ORA_NMORRISS: schema" type="3abd1b6a:OraImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@dbhost.students.cs.ubc.ca" type="feb32156:DbDataSourceImpl" />
+        <item name="ORA_NMORRISS: schema" type="3abd1b6a:OraImplModel$Schema" />
+        <item name="AGENCY: table" type="942f455b:OraImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -70,24 +80,63 @@
     <property name="DatabaseDriversLRU" value="oracle" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.STATE" value="right" />
+    <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="229" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="569" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="js.buildTools.grunt.grunt-cli.package" value="" />
     <property name="js.buildTools.gulp.gulp_package_dir" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/ca/ubc/cs304/sql/scripts/databaseSetup76.sql" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="ca.ubc.cs304.delegates" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/.idea" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.InfectiousDiseases">
     <configuration name="Bank" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ca.ubc.cs304.controller.Bank" />
       <module name="CPSC304-JavaDemo" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="ca.ubc.cs304.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="InfectiousDiseases" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ca.ubc.cs304.controller.InfectiousDiseases" />
+      <module name="CPSC304-JavaDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ca.ubc.cs304.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UITransactions" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ca.ubc.cs304.ui.UITransactions" />
+      <module name="CPSC304-JavaDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ca.ubc.cs304.ui.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -111,6 +160,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.InfectiousDiseases" />
+        <item itemvalue="Application.UITransactions" />
         <item itemvalue="Application.Bank" />
       </list>
     </recent_temporary>
@@ -159,6 +210,7 @@
       <workItem from="1586029464147" duration="3336000" />
       <workItem from="1586033870540" duration="21771000" />
       <workItem from="1586060960469" duration="412000" />
+      <workItem from="1586065819156" duration="22366000" />
     </task>
     <servers />
   </component>
@@ -175,78 +227,127 @@
     </state>
     <state x="919" y="-902" key="#SQL_Dialects/0.0.1368.872/367.-1080.1920.1040@367.-1080.1920.1040" timestamp="1585957645529" />
     <state x="1037" y="-902" key="#SQL_Dialects/0.0.1368.872/485.-1080.1920.1040@485.-1080.1920.1040" timestamp="1585706504244" />
-    <state x="977" y="-1019" width="1089" height="774" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585947567833">
-      <screen x="367" y="-1080" width="1920" height="1040" />
+    <state x="610" y="63" width="804" height="686" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586067799805">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="255" y="26" width="1089" height="774" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1344.800@0.0.1344.800" timestamp="1585614817464" />
     <state x="977" y="-1019" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1368.872/367.-1080.1920.1040@367.-1080.1920.1040" timestamp="1585947567833" />
     <state x="1095" y="-1019" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1368.872/485.-1080.1920.1040@485.-1080.1920.1040" timestamp="1585697595989" />
     <state x="1032" y="181" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585611493782" />
+    <state x="610" y="63" width="804" height="686" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1586067799805" />
     <state x="1095" y="-757" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1585957595304">
       <screen x="367" y="-1080" width="1920" height="1040" />
     </state>
     <state x="1095" y="-757" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1368.872/367.-1080.1920.1040@367.-1080.1920.1040" timestamp="1585957595304" />
     <state x="1213" y="-757" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1368.872/485.-1080.1920.1040@485.-1080.1920.1040" timestamp="1585706466796" />
-    <state x="811" y="409" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1585610999403">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="721" y="185" width="472" height="709" key="#com.intellij.ide.util.MemberChooser" timestamp="1586091220552">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="721" y="185" width="472" height="709" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1586091220552" />
+    <state x="811" y="425" width="432" height="227" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1586065831492">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="811" y="409" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585610999403" />
+    <state x="811" y="425" width="432" height="227" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1586065831492" />
+    <state x="627" y="231" width="659" height="616" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586072744175">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="627" y="231" width="659" height="616" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1586072744175" />
+    <state width="326" height="242" key="DatabaseViewActions_Filter" timestamp="1586087203230">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="326" height="242" key="DatabaseViewActions_Filter/0.0.1920.1080@0.0.1920.1080" timestamp="1586087203230" />
     <state x="3974" y="225" key="ExecutionTargetDialog" timestamp="1585615020220">
       <screen x="2736" y="0" width="1920" height="1040" />
     </state>
     <state x="3974" y="225" key="ExecutionTargetDialog/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1585615020220" />
     <state x="1238" y="225" key="ExecutionTargetDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585613563754" />
-    <state x="1107" y="-805" key="FileChooserDialogImpl" timestamp="1586061005339">
-      <screen x="367" y="-1080" width="1920" height="1040" />
+    <state x="740" y="286" key="FileChooserDialogImpl" timestamp="1586065900631">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="1107" y="-805" key="FileChooserDialogImpl/0.0.1368.872/367.-1080.1920.1040@367.-1080.1920.1040" timestamp="1586061005339" />
-    <state width="924" height="282" key="GridCell.Tab.0.bottom" timestamp="1586055012636">
-      <screen x="367" y="-1080" width="1920" height="1040" />
+    <state x="740" y="286" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1586065900631" />
+    <state width="1864" height="275" key="GridCell.Tab.0.bottom" timestamp="1586093453915">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1041" height="281" key="GridCell.Tab.0.bottom/0.0.1344.800@0.0.1344.800" timestamp="1585699104473" />
     <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1585689669031" />
     <state width="924" height="282" key="GridCell.Tab.0.bottom/0.0.1368.872/367.-1080.1920.1040@367.-1080.1920.1040" timestamp="1586055012636" />
     <state width="1877" height="206" key="GridCell.Tab.0.bottom/0.0.1368.872/485.-1080.1920.1040@485.-1080.1920.1040" timestamp="1585700073720" />
-    <state width="924" height="282" key="GridCell.Tab.0.center" timestamp="1586055012636">
-      <screen x="367" y="-1080" width="1920" height="1040" />
+    <state width="1864" height="275" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1586093453912" />
+    <state width="1864" height="275" key="GridCell.Tab.0.center" timestamp="1586093453910">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1041" height="281" key="GridCell.Tab.0.center/0.0.1344.800@0.0.1344.800" timestamp="1585699104473" />
     <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1585689669031" />
     <state width="924" height="282" key="GridCell.Tab.0.center/0.0.1368.872/367.-1080.1920.1040@367.-1080.1920.1040" timestamp="1586055012636" />
     <state width="1877" height="206" key="GridCell.Tab.0.center/0.0.1368.872/485.-1080.1920.1040@485.-1080.1920.1040" timestamp="1585700073720" />
-    <state width="924" height="282" key="GridCell.Tab.0.left" timestamp="1586055012636">
-      <screen x="367" y="-1080" width="1920" height="1040" />
+    <state width="1864" height="275" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1586093453910" />
+    <state width="1864" height="275" key="GridCell.Tab.0.left" timestamp="1586093453910">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1041" height="281" key="GridCell.Tab.0.left/0.0.1344.800@0.0.1344.800" timestamp="1585699104473" />
     <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1585689669031" />
     <state width="924" height="282" key="GridCell.Tab.0.left/0.0.1368.872/367.-1080.1920.1040@367.-1080.1920.1040" timestamp="1586055012636" />
     <state width="1877" height="206" key="GridCell.Tab.0.left/0.0.1368.872/485.-1080.1920.1040@485.-1080.1920.1040" timestamp="1585700073720" />
-    <state width="924" height="282" key="GridCell.Tab.0.right" timestamp="1586055012636">
-      <screen x="367" y="-1080" width="1920" height="1040" />
+    <state width="1864" height="275" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1586093453910" />
+    <state width="1864" height="275" key="GridCell.Tab.0.right" timestamp="1586093453911">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1041" height="281" key="GridCell.Tab.0.right/0.0.1344.800@0.0.1344.800" timestamp="1585699104473" />
     <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1368.872/2736.0.1920.1040@2736.0.1920.1040" timestamp="1585689669031" />
     <state width="924" height="282" key="GridCell.Tab.0.right/0.0.1368.872/367.-1080.1920.1040@367.-1080.1920.1040" timestamp="1586055012636" />
     <state width="1877" height="206" key="GridCell.Tab.0.right/0.0.1368.872/485.-1080.1920.1040@485.-1080.1920.1040" timestamp="1585700073720" />
+    <state width="1864" height="275" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1586093453911" />
+    <state width="1864" height="341" key="GridCell.Tab.1.bottom" timestamp="1586083548389">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1864" height="341" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1586083548389" />
+    <state width="1864" height="341" key="GridCell.Tab.1.center" timestamp="1586083548389">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1864" height="341" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1586083548389" />
+    <state width="1864" height="341" key="GridCell.Tab.1.left" timestamp="1586083548389">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1864" height="341" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1586083548389" />
+    <state width="1864" height="341" key="GridCell.Tab.1.right" timestamp="1586083548389">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1864" height="341" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1586083548389" />
+    <state x="620" y="252" width="674" height="575" key="GuiDesigner.FormSource.Dialog" timestamp="1586072219390">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="620" y="252" width="674" height="575" key="GuiDesigner.FormSource.Dialog/0.0.1920.1080@0.0.1920.1080" timestamp="1586072219390" />
     <state width="196" height="457" key="HiddenNamespacesPopup" timestamp="1585700499775">
       <screen x="485" y="-1080" width="1920" height="1040" />
     </state>
     <state width="196" height="457" key="HiddenNamespacesPopup/0.0.1368.872/485.-1080.1920.1040@485.-1080.1920.1040" timestamp="1585700499775" />
     <state width="196" height="457" key="HiddenNamespacesPopup/0.0.1920.1040@0.0.1920.1040" timestamp="1585611365312" />
+    <state x="725" y="329" width="469" height="421" key="UIDesigner.ListEditorDialog" timestamp="1586093730495">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="725" y="329" width="469" height="421" key="UIDesigner.ListEditorDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1586093730495" />
     <state x="907" y="-905" key="com.intellij.database.dbimport.ImportDialog" timestamp="1586060891016">
       <screen x="367" y="-1080" width="1920" height="1040" />
     </state>
     <state x="907" y="-905" key="com.intellij.database.dbimport.ImportDialog/0.0.1368.872/367.-1080.1920.1040@367.-1080.1920.1040" timestamp="1586060891016" />
-    <state x="901" y="-789" key="com.intellij.ide.util.TipDialog" timestamp="1586060961755">
-      <screen x="367" y="-1080" width="1920" height="1040" />
+    <state x="534" y="302" key="com.intellij.ide.util.TipDialog" timestamp="1586065818849">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="374" y="224" key="com.intellij.ide.util.TipDialog/0.0.1344.800@0.0.1344.800" timestamp="1585610286812" />
     <state x="901" y="-789" key="com.intellij.ide.util.TipDialog/0.0.1368.872/367.-1080.1920.1040@367.-1080.1920.1040" timestamp="1586060961755" />
     <state x="1019" y="-789" key="com.intellij.ide.util.TipDialog/0.0.1368.872/485.-1080.1920.1040@485.-1080.1920.1040" timestamp="1585700181094" />
-    <state x="990" y="-855" width="672" height="678" key="search.everywhere.popup" timestamp="1585971187814">
-      <screen x="367" y="-1080" width="1920" height="1040" />
+    <state x="534" y="302" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1586065818849" />
+    <state x="348" y="219" width="1218" height="640" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1586082332013">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="348" y="219" width="1218" height="640" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1080@0.0.1920.1080" timestamp="1586082332013" />
+    <state x="623" y="234" width="928" height="705" key="search.everywhere.popup" timestamp="1586068067204">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="3359" y="739" width="672" height="678" key="search.everywhere.popup/0.0.1368.872/2736.514.1920.1040@2736.514.1920.1040" timestamp="1585856807072" />
     <state x="990" y="-855" width="672" height="678" key="search.everywhere.popup/0.0.1368.872/367.-1080.1920.1040@367.-1080.1920.1040" timestamp="1585971187814" />
+    <state x="623" y="234" width="928" height="705" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1586068067204" />
   </component>
 </project>
