@@ -2,22 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04db61e5-70c0-457e-9b75-2aeecfbda56b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/ojdbc8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ca/ubc/cs304/ui/UITransactions.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ca/ubc/cs304/ui/UITransactionsOld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/4173d5fa-483a-466b-a0a4-48bb6b2a202b.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4173d5fa-483a-466b-a0a4-48bb6b2a202b.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/ca/ubc/cs304/sql/scripts/databaseSetup.sql" beforeDir="false" afterPath="$PROJECT_DIR$/bin/ca/ubc/cs304/sql/scripts/databaseSetup.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/ca/ubc/cs304/sql/scripts/databaseSetup76.sql" beforeDir="false" afterPath="$PROJECT_DIR$/bin/ca/ubc/cs304/sql/scripts/databaseSetup76.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ca/ubc/cs304/controller/InfectiousDiseases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ca/ubc/cs304/controller/InfectiousDiseases.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ca/ubc/cs304/database/DatabaseConnectionHandler76.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ca/ubc/cs304/database/DatabaseConnectionHandler76.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ca/ubc/cs304/delegates/UITransactionsDelegate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ca/ubc/cs304/delegates/UITransactionsDelegate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ca/ubc/cs304/ui/LoginWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ca/ubc/cs304/ui/LoginWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ca/ubc/cs304/ui/UITransactions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ca/ubc/cs304/ui/UITransactions.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -244,9 +232,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="721" y="185" width="472" height="709" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1586091220552" />
-    <state x="811" y="425" width="432" height="227" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1586065831492">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="1178" y="-671" width="432" height="227" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1586129040914">
+      <screen x="367" y="-1080" width="1920" height="1040" />
     </state>
+    <state x="1178" y="-671" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1368.872/367.-1080.1920.1040@367.-1080.1920.1040" timestamp="1586129040914" />
     <state x="811" y="409" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585610999403" />
     <state x="811" y="425" width="432" height="227" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1586065831492" />
     <state x="627" y="231" width="659" height="616" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586072744175">
