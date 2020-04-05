@@ -106,7 +106,13 @@ public class InfectiousDiseases implements UITransactionsDelegate, LoginWindowDe
      *
      * Update the agency num_of_employees for a specific name
      */
-    public void updateAgency(String name, int num_of_employees) { dbHandler.updateAgency(name, num_of_employees); }
+    public void updateAgency(String name, int num_of_employees) throws SQLException {
+        try {
+            dbHandler.updateAgency(name, num_of_employees);
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
 
     /**
      * UIDelegate Implementation

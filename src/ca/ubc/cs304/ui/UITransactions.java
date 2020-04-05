@@ -31,8 +31,6 @@ public class UITransactions extends JFrame {
     private JComboBox selectInsert;
     private JLabel selectATableFromLabel;
     private JPanel update;
-    private JComboBox comboBox2;
-    private JComboBox comboBox3;
     private JPanel delete;
     private JSlider r0Slider;
     private JLabel r0Label;
@@ -46,6 +44,10 @@ public class UITransactions extends JFrame {
     private JTextField deleteIn;
     private JButton deleteBtn;
     private JLabel deleteLbl;
+    private JTextField updateAName;
+    private JTextField updateANOE;
+    private JButton updateBtn;
+    private JLabel updateEx;
 
     public UITransactions(InfectiousDiseases infectiousDiseases) {
         super("Pandemic Dashboard");
@@ -65,7 +67,7 @@ public class UITransactions extends JFrame {
 
                     String[] splitInput = input.split(",", 2);
                     try {
-                        AgencyModel agencyModel = new AgencyModel(splitInput[0], Integer.parseInt(splitInput[1]));
+                        AgencyModel agencyModel = new AgencyModel(splitInput[0], Integer.valueOf(splitInput[1]));
                         try {
                             infectiousDiseases.insertAgency(agencyModel);
                             insertedLbl.setText("Inserted " + input + " into AGENCY");
@@ -163,6 +165,21 @@ public class UITransactions extends JFrame {
                 } catch (SQLException e){
                     deleteLbl.setText(e.getMessage());
                     System.out.println(e.getMessage());
+                }
+            }
+        });
+        updateBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                String[] agencyName = updateAName.getText().split("[^A-Za-z0-9 ].");
+                if (!String.valueOf(agencyName[0].charAt(agencyName[0].length()-1)).matches("[A-Za-z0-9_]"))
+                    agencyName[0] = agencyName[0].substring(0, agencyName[0].length()-1);
+                String cleanAgencyName = agencyName[0];
+                int agencyNOE = Integer.valueOf(updateANOE.getText());
+                try {
+                    infectiousDiseases.updateAgency(cleanAgencyName, agencyNOE);
+                } catch (SQLException e) {
+                    updateEx.setText(e.getMessage());
                 }
             }
         });

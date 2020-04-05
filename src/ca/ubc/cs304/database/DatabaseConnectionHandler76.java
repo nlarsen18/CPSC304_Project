@@ -88,11 +88,11 @@ public class DatabaseConnectionHandler76 {
         }
     }
 
-    public void updateAgency(String name, int num_of_employees){
+    public void updateAgency(String name, int num_of_employees) throws SQLException{
         try {
             PreparedStatement ps = connection.prepareStatement( "UPDATE agency SET agency_num_of_employees = ? WHERE agency_name = ?");
-            ps.setString(1, name);
-            ps.setInt(2, num_of_employees);
+            ps.setString(2, name);
+            ps.setInt(1, num_of_employees);
 
             int rowCount = ps.executeUpdate();
             if (rowCount == 0) {
@@ -105,6 +105,7 @@ public class DatabaseConnectionHandler76 {
         } catch (SQLException e) {
             System.out.println(EXCEPTION_TAG + " " + e.getMessage());
             rollbackConnection();
+            throw e;
         }
     }
 

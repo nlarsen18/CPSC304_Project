@@ -38,7 +38,7 @@ public interface UITransactionsDelegate {
     public void insertAgency(AgencyModel model) throws SQLException;
     public void insertDisease(DiseaseModel model) throws SQLException;
     public void insertTreats(TreatsModel model) throws SQLException;
-    public void updateAgency(String name, int num_of_employees);
+    public void updateAgency(String name, int num_of_employees) throws SQLException;
     public ArrayList<String> selectDiseaseR0(double r0);
     public ArrayList<String> projectAgency(String col);
     public ArrayList<String> findHospitalsThatTreat(String disease_name);
