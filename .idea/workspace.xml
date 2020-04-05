@@ -248,10 +248,11 @@
     <state x="721" y="185" width="472" height="709" key="#com.intellij.ide.util.MemberChooser" timestamp="1586127521644">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="721" y="185" width="472" height="709" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1586127521644" />
-    <state x="811" y="425" width="432" height="227" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1586065831492">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="721" y="185" width="472" height="709" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080@0.0.1920.1080" timestamp="1586091220552" />
+    <state x="1178" y="-671" width="432" height="227" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1586129040914">
+      <screen x="367" y="-1080" width="1920" height="1040" />
     </state>
+    <state x="1178" y="-671" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1368.872/367.-1080.1920.1040@367.-1080.1920.1040" timestamp="1586129040914" />
     <state x="811" y="409" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585610999403" />
     <state x="811" y="425" width="432" height="227" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1586065831492" />
     <state x="627" y="231" width="659" height="616" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586072744175">

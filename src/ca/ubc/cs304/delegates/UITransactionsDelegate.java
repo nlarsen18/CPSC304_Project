@@ -45,5 +45,4 @@ public interface UITransactionsDelegate {
     public ArrayList<Integer> countAgencies();
     public ArrayList<NestedAgrResultModel> avgR0PerType();
     public ArrayList<String> hospitalsTreatAllDisease();
-
 }
