@@ -2,12 +2,16 @@ package ca.ubc.cs304.ui;
 
 import ca.ubc.cs304.controller.InfectiousDiseases;
 import ca.ubc.cs304.delegates.UITransactionsDelegate;
+import ca.ubc.cs304.model.AgencyModel;
+import ca.ubc.cs304.model.DiseaseModel;
+import ca.ubc.cs304.model.TreatsModel;
 
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class UITransactions extends JFrame {
@@ -26,7 +30,6 @@ public class UITransactions extends JFrame {
     private JComboBox selectInsert;
     private JLabel selectATableFromLabel;
     private JPanel update;
-    private JTable table2;
     private JComboBox comboBox2;
     private JComboBox comboBox3;
     private JPanel delete;
@@ -38,6 +41,7 @@ public class UITransactions extends JFrame {
     private JButton projectBtn;
     private JLabel projectLbl;
     private JList agencyList;
+    private JLabel insertedLbl;
 
     public UITransactions(InfectiousDiseases infectiousDiseases) {
         super("Pandemic Dashboard");
@@ -52,8 +56,49 @@ public class UITransactions extends JFrame {
             public void actionPerformed(ActionEvent actionEvent) {
                 String input = tupleText.getText();
                 String selection = String.valueOf(selectInsert.getSelectedItem());
-                System.out.println(selection);
-                System.out.println(input);
+
+                if (selection.equals("AGENCY")){
+
+                    String[] splitInput = input.split(",", 2);
+                    try {
+                        AgencyModel agencyModel = new AgencyModel(splitInput[0], Integer.parseInt(splitInput[1]));
+                        try {
+                            infectiousDiseases.insertAgency(agencyModel);
+                            insertedLbl.setText("Inserted " + input + " into AGENCY");
+                        } catch (SQLException e) {
+                            insertedLbl.setText(e.getMessage());
+                        }
+                    } catch (ArrayIndexOutOfBoundsException e){
+                        insertedLbl.setText(e.getMessage());
+                    }
+                } else if (selection.equals("DISEASE")){
+                    String[] splitInput = input.split(",", 3);
+                    try {
+                        DiseaseModel diseaseModel = new DiseaseModel(splitInput[0], splitInput[1], Float.valueOf(splitInput[2]));
+                        try {
+                            infectiousDiseases.insertDisease(diseaseModel);
+                            insertedLbl.setText("Inserted " + input + " into DISEASE");
+                        } catch (SQLException e) {
+                            insertedLbl.setText(e.getMessage());
+                        }
+                    } catch (ArrayIndexOutOfBoundsException e) {
+                        insertedLbl.setText(e.getMessage());
+                    }
+                } else {
+                    String[] splitInput = input.split(",", 3);
+                    try{
+                        TreatsModel treatsModel = new TreatsModel(splitInput[0], splitInput[1]);
+                        try {
+
+                            infectiousDiseases.insertTreats(treatsModel);
+                            insertedLbl.setText("Inserted " + input + " into TREATS");
+                        } catch (SQLException e) {
+                            insertedLbl.setText(e.getMessage());
+                        }
+                    } catch (ArrayIndexOutOfBoundsException e) {
+                        insertedLbl.setText(e.getMessage());
+                    }
+                }
             }
         });
         viewBtn.addActionListener(new ActionListener() {

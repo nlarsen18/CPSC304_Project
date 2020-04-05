@@ -8,6 +8,7 @@ import ca.ubc.cs304.ui.LoginWindow;
 import ca.ubc.cs304.ui.UITransactions;
 import ca.ubc.cs304.ui.UITransactionsOld;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -59,21 +60,39 @@ public class InfectiousDiseases implements UITransactionsDelegate, LoginWindowDe
      *
      * Insert a agency with the given info
      */
-    public void insertAgency(AgencyModel model) { dbHandler.insertAgency(model); }
+    public void insertAgency(AgencyModel model) throws SQLException{
+        try{
+            dbHandler.insertAgency(model);
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
 
     /**
      * UIDelegate Implementation
      *
      * Insert a disease with the given info
      */
-    public void insertDisease(DiseaseModel model) { dbHandler.insertDisease(model); }
+    public void insertDisease(DiseaseModel model) throws SQLException{
+        try {
+            dbHandler.insertDisease(model);
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
 
     /**
      * UIDelegate Implementation
      *
      * Insert a treats relationship with the given info
      */
-    public void insertTreats(TreatsModel model) { dbHandler.insertTreats(model); }
+    public void insertTreats(TreatsModel model) throws SQLException{
+        try {
+            dbHandler.insertTreats(model);
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
 
     /**
      * UIDelegate Implementation

@@ -5,6 +5,7 @@ import ca.ubc.cs304.model.DiseaseModel;
 import ca.ubc.cs304.model.NestedAgrResultModel;
 import ca.ubc.cs304.model.TreatsModel;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -33,9 +34,9 @@ public interface UITransactionsDelegate {
      */
 
     public void deleteAgency(String name);
-    public void insertAgency(AgencyModel model);
-    public void insertDisease(DiseaseModel model);
-    public void insertTreats(TreatsModel model);
+    public void insertAgency(AgencyModel model) throws SQLException;
+    public void insertDisease(DiseaseModel model) throws SQLException;
+    public void insertTreats(TreatsModel model) throws SQLException;
     public void updateAgency(String name, int num_of_employees);
     public ArrayList<String> selectDiseaseR0(double r0);
     public ArrayList<String> projectAgency(String col);

@@ -75,9 +75,9 @@ public class DatabaseConnectionHandler76 {
         }
     }
 
-    public void insertAgency(AgencyModel model) {
+    public void insertAgency(AgencyModel model) throws SQLException{
         try {
-            PreparedStatement ps = connection.prepareStatement("INSERT INTO agency VALUES (?,?)");
+            PreparedStatement ps = connection.prepareStatement("INSERT INTO agency (AGENCY_NAME, AGENCY_NUM_OF_EMPLOYEES) VALUES (?,?)");
             ps.setString(1, model.getName());
             ps.setInt(2, model.getNum_of_employees());
 
@@ -88,6 +88,7 @@ public class DatabaseConnectionHandler76 {
         } catch (SQLException e) {
             System.out.println(EXCEPTION_TAG + " " + e.getMessage());
             rollbackConnection();
+            throw e;
         }
     }
 
@@ -115,7 +116,7 @@ public class DatabaseConnectionHandler76 {
      * We had to add these insert functions so that we could
      * dynamically enter info to prove our other queries are dynamic
      */
-    public void insertDisease(DiseaseModel model) {
+    public void insertDisease(DiseaseModel model) throws SQLException {
         try {
             PreparedStatement ps = connection.prepareStatement("INSERT INTO disease VALUES (?,?,?)");
             ps.setString(1, model.getScientific_Name());
@@ -129,10 +130,11 @@ public class DatabaseConnectionHandler76 {
         } catch (SQLException e) {
             System.out.println(EXCEPTION_TAG + " " + e.getMessage());
             rollbackConnection();
+            throw e;
         }
     }
 
-    public void insertTreats(TreatsModel model){
+    public void insertTreats(TreatsModel model) throws SQLException{
         try {
             PreparedStatement ps = connection.prepareStatement("INSERT INTO treats VALUES (?,?)");
             ps.setString(1, model.getHospital_Address());
@@ -145,6 +147,7 @@ public class DatabaseConnectionHandler76 {
         } catch (SQLException e) {
             System.out.println(EXCEPTION_TAG + " " + e.getMessage());
             rollbackConnection();
+            throw e;
         }
     }
 
