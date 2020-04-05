@@ -334,6 +334,9 @@ INSERT INTO caresfor_patient VALUES (4,' Amy Sneedley', '1938 Pupper Pl, Bonetow
 commit work;
 INSERT INTO treats VALUES ('5783 Notreal Rd, Nowhereville','COVID-19');
 INSERT INTO treats VALUES ('5783 Notreal Rd, Nowhereville','Tuberculosis');
+INSERT INTO treats VALUES ('5783 Notreal Rd, Nowhereville', 'Norovirus');
+INSERT INTO treats VALUES ('5783 Notreal Rd, Nowhereville', 'Malaria');
+INSERT INTO treats VALUES ('5783 Notreal Rd, Nowhereville', 'Swine Flu');
 INSERT INTO treats VALUES ('4889 Oaky Rd, Dokey','Norovirus');
 INSERT INTO treats VALUES ('2948 Pupper Pl, Bonetown','Malaria');
 INSERT INTO treats VALUES ('2948 Pupper Pl, Bonetown','COVID-19');

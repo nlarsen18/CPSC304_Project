@@ -15,5 +15,5 @@ public class DiseaseModel {
 
     public String getType() { return Type; }
 
-    public float R0() { return R0; }
+    public float getR0() { return R0; }
 }

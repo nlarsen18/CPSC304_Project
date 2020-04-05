@@ -1,6 +1,11 @@
 package ca.ubc.cs304.delegates;
 
 import ca.ubc.cs304.model.AgencyModel;
+import ca.ubc.cs304.model.DiseaseModel;
+import ca.ubc.cs304.model.NestedAgrResultModel;
+import ca.ubc.cs304.model.TreatsModel;
+
+import java.util.ArrayList;
 
 /**
  * This interface uses the delegation design pattern where instead of having
@@ -29,6 +34,14 @@ public interface UITransactionsDelegate {
 
     public void deleteAgency(String name);
     public void insertAgency(AgencyModel model);
+    public void insertDisease(DiseaseModel model);
+    public void insertTreats(TreatsModel model);
     public void updateAgency(String name, int num_of_employees);
+    public ArrayList<String> selectDiseaseR0(float r0);
+    public ArrayList<String> projectAgencyName();
+    public ArrayList<String> findHospitalsThatTreat(String disease_name);
+    public ArrayList<Integer> countAgencies();
+    public ArrayList<NestedAgrResultModel> avgR0PerType();
+    public ArrayList<String> hospitalsTreatAllDisease();
 
 }

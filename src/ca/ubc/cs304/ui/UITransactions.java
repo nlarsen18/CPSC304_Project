@@ -2,6 +2,8 @@ package ca.ubc.cs304.ui;
 
 import ca.ubc.cs304.delegates.UITransactionsDelegate;
 
+import java.util.ArrayList;
+
 /**
  * The class is responsible for handling ui text inputs
  */
@@ -15,8 +17,8 @@ public class UITransactions {
 
     public void handleDeleteOption(){
         //TODO
-        String bob;
-        delegate.deleteAgency(bob);
+
+        //delegate.deleteAgency();
     }
 
     private void handleInsertOption(){
@@ -30,5 +32,9 @@ public class UITransactions {
 
         //delegate.updateAgency();
     }
+
+
+
+
 
 }

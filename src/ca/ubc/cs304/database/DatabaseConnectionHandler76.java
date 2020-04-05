@@ -9,6 +9,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import ca.ubc.cs304.model.AgencyModel;
+import ca.ubc.cs304.model.DiseaseModel;
+import ca.ubc.cs304.model.NestedAgrResultModel;
+import ca.ubc.cs304.model.TreatsModel;
 
 public class DatabaseConnectionHandler76 {
     private static final String ORACLE_URL = "jdbc:oracle:thin:@localhost:1522:stu";
@@ -92,27 +95,196 @@ public class DatabaseConnectionHandler76 {
     }
 
     /**
-     * This function performs the required Selection Query.
-     * It allows you to select all disease R0's with an R0 >= input
+     * We had to add these insert functions so that we could
+     * dynamically enter info to prove our other queries are dynamic
      */
-    public void selectDiseaseR0(float input){
-        try{
-            PreparedStatement ps = connection.prepareStatement( "SELECT disease_Scientific_Name FROM disease WHERE disease_R0 >= ?");
-            ps.setFloat(1, input);
+    public void insertDisease(DiseaseModel model) {
+        try {
+            PreparedStatement ps = connection.prepareStatement("INSERT INTO disease VALUES (?,?,?)");
+            ps.setString(1, model.getScientific_Name());
+            ps.setString(2, model.getType());
+            ps.setFloat(3, model.getR0());
 
+            ps.executeUpdate();
+            connection.commit();
 
+            ps.close();
         } catch (SQLException e) {
             System.out.println(EXCEPTION_TAG + " " + e.getMessage());
             rollbackConnection();
         }
     }
 
+    public void insertTreats(TreatsModel model){
+        try {
+            PreparedStatement ps = connection.prepareStatement("INSERT INTO treats VALUES (?,?)");
+            ps.setString(1, model.getHospital_Address());
+            ps.setString(2, model.getDisease_Scientific_Name());
+
+            ps.executeUpdate();
+            connection.commit();
+
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+            rollbackConnection();
+        }
+    }
+
+
+
+    /**
+     * This function performs the required Selection Query.
+     * It allows you to select all disease R0's with an R0 >= input
+     */
+    public ArrayList<String> selectDiseaseR0(float r0){
+        ArrayList<String> result = new ArrayList<String>();
+
+        try{
+
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT disease_Scientific_Name FROM disease WHERE disease_R0 >= ?");
+
+            while(rs.next()){
+                result.add(rs.getString("disease_Scientific_Name"));
+            }
+
+            rs.close();
+            stmt.close();
+        } catch (SQLException e) {
+            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+            rollbackConnection();
+        }
+        return result;
+    }
+
     /**
      * This function performs the required projection Query.
      * It projects the names of the agencies.
      */
-    public void projectAgencyName(){
+    public ArrayList<String> projectAgencyName(){
+        ArrayList<String> result = new ArrayList<String>();
 
+        try{
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT agency_Name FROM agency");
+
+            while(rs.next()){
+                result.add(rs.getString("agency_Name"));
+            }
+
+            rs.close();
+            stmt.close();
+        } catch (SQLException e) {
+            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+            rollbackConnection();
+        }
+        return result;
+    }
+
+    /**
+     * This function performs the join query.
+     * Find the names of all hospitals that treat a specified disease (through disease_Scientific_Name)
+     * @param disease_name
+     * @return
+     */
+    public ArrayList<String> findHospitalsThatTreat(String disease_name){
+        ArrayList<String> result = new ArrayList<String>();
+
+        try{
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT hospital_Name FROM hospital, treats WHERE disease_Scientific_Name = ? ");
+
+            while(rs.next()){
+                result.add(rs.getString("hospital_Name"));
+            }
+
+            rs.close();
+            stmt.close();
+        } catch (SQLException e) {
+            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+            rollbackConnection();
+        }
+        return result;
+    }
+
+
+    /**
+     * This function performs the aggregation query
+     *
+     * Count the number of Agencies
+     */
+    public ArrayList<Integer> countAgencies(){
+        ArrayList<Integer> result = new ArrayList<Integer>();
+
+        try{
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT COUNT(agency_Name) FROM agency");
+
+            while(rs.next()){
+                result.add(rs.getInt("COUNT_agency_Name"));
+            }
+
+            rs.close();
+            stmt.close();
+        } catch (SQLException e) {
+            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+            rollbackConnection();
+        }
+        return result;
+    }
+
+    /**
+     * This function performs the nested aggregation with group-by
+     *
+     * Find the average R0 value per disease type
+     */
+    public ArrayList<NestedAgrResultModel> avgR0PerType(){
+        ArrayList<NestedAgrResultModel> result = new ArrayList<NestedAgrResultModel>();
+
+        try{
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT disease_Type, AVG(disease_R0) FROM Disease GROUP BY disease_Type");
+
+            while(rs.next()){
+                NestedAgrResultModel model = new NestedAgrResultModel(rs.getFloat("AVG_disease_R0"),
+                                                                      rs.getString("disease_Type"));
+                result.add(model);
+            }
+
+            rs.close();
+            stmt.close();
+        } catch (SQLException e) {
+            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+            rollbackConnection();
+        }
+        return result;
+    }
+
+    /**
+     * This function performs the Division Query
+     *
+     *Find the names of hospitals who treat all diseases
+     */
+    public ArrayList<String> hospitalsTreatAllDisease(){
+        ArrayList<String> result = new ArrayList<String>();
+
+        try{
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT hospital_Name FROM hospital H" +
+                    "WHERE NOT EXISTS ((SELECT D.disease_Scientific_Name FROM disease D) EXCEPT (SELECT T.disease_Scientific_Name FROM treats T WHERE  T.hospital_Address = H.hospital_Address))");
+
+            while(rs.next()){
+                result.add(rs.getString("hospital_Name"));
+            }
+
+            rs.close();
+            stmt.close();
+        } catch (SQLException e) {
+            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+            rollbackConnection();
+        }
+        return result;
     }
 
     private void rollbackConnection() {
