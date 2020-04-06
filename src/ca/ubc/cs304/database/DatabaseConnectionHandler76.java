@@ -8,6 +8,8 @@ import ca.ubc.cs304.model.DiseaseModel;
 import ca.ubc.cs304.model.NestedAgrResultModel;
 import ca.ubc.cs304.model.TreatsModel;
 
+import javax.swing.plaf.nimbus.State;
+
 public class DatabaseConnectionHandler76 {
     private static final String ORACLE_URL = "jdbc:oracle:thin:@localhost:1522:stu";
     private static final String EXCEPTION_TAG = "[EXCEPTION]";
@@ -59,6 +61,27 @@ public class DatabaseConnectionHandler76 {
             int rowCount = ps.executeUpdate();
             if (rowCount == 0) {
                 System.out.println(WARNING_TAG + " Agency " + name + " does not exist!");
+            }
+
+            connection.commit();
+
+            ps.close();
+        } catch (SQLException e) {
+            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+            rollbackConnection();
+            throw e;
+        }
+    }
+
+    public void deleteTreats(String address, String scientific_Name) throws SQLException {
+        try {
+            PreparedStatement ps = connection.prepareStatement("DELETE FROM treats WHERE hospital_address = ? AND disease_Scientific_Name = ?");
+            ps.setString(1, address);
+            ps.setString(2, scientific_Name);
+
+            int rowCount = ps.executeUpdate();
+            if (rowCount == 0) {
+                System.out.println(WARNING_TAG + " hospital at " + address + " doesn't treat " + scientific_Name);
             }
 
             connection.commit();
@@ -305,6 +328,36 @@ public class DatabaseConnectionHandler76 {
         }
         return result;
     }
+
+    /**
+     * This function allows us to view the treats table
+     *
+     * Conduct a SELECT * query on the treats table so that we can prove some of
+     * the above queries are dynamic
+     */
+    public ArrayList<TreatsModel> getTreatsInfo(){
+        ArrayList<TreatsModel> result = new ArrayList<TreatsModel>();
+
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM treats");
+
+            while(rs.next()){
+                TreatsModel model = new TreatsModel(rs.getString("hospital_Address"),
+                                                    rs.getString("disease_Scientific_Name"));
+
+                result.add(model);
+            }
+
+            rs.close();
+            stmt.close();
+        } catch (SQLException e) {
+            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+        }
+
+        return result;
+    }
+
 
     private void rollbackConnection() {
         try  {
