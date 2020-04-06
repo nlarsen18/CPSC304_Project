@@ -9,6 +9,7 @@ import ca.ubc.cs304.model.TreatsModel;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -55,7 +56,9 @@ public class UITransactions extends JFrame {
     private JComboBox findHospitalComboBox;
     private JComboBox deleteComboBox;
     private JComboBox viewComboBox;
-    private JTable table1;
+    private JTable viewTable;
+    private JPanel viewTab;
+    private JPanel findHospTab;
 
     public UITransactions(InfectiousDiseases infectiousDiseases) {
         super("Pandemic Dashboard");
@@ -73,7 +76,7 @@ public class UITransactions extends JFrame {
 
                 if (selection.equals("AGENCY")){
 
-                    String[] splitInput = input.split(",|,_", 2);
+                    String[] splitInput = input.split(",|,_|/|/_", 2);
                     try {
                         AgencyModel agencyModel = new AgencyModel(splitInput[0], Integer.valueOf(splitInput[1]));
                         try {
@@ -86,7 +89,7 @@ public class UITransactions extends JFrame {
                         insertedLbl.setText(e.getMessage());
                     }
                 } else if (selection.equals("DISEASE")){
-                    String[] splitInput = input.split(",|,_", 3);
+                    String[] splitInput = input.split(",|,_|/|/_", 3);
                     try {
                         DiseaseModel diseaseModel = new DiseaseModel(splitInput[0], splitInput[1], Float.valueOf(splitInput[2]));
                         try {
@@ -227,25 +230,42 @@ public class UITransactions extends JFrame {
                 hospitalList.setModel(model);
             }
         });
-        viewComboBox.addItemListener(new ItemListener() {
+        viewComboBox.addActionListener(new ActionListener() {
             @Override
-            public void itemStateChanged(ItemEvent itemEvent) {
+            public void actionPerformed(ActionEvent itemEvent) {
                 int selection = viewComboBox.getSelectedIndex();
                 if (selection == 1) {
                     ArrayList<AgencyModel> agencyInfo = infectiousDiseases.getAgencyInfo();
+                    String[] col = {"Agency_Name", "Agency_Num_Of_Employees"};
+                    DefaultTableModel tableModel = new DefaultTableModel(col, 0);
+                    tableModel.addRow(col);
+                    viewTable.setModel(tableModel);
                     for (AgencyModel am : agencyInfo) {
-                        System.out.println(am.getName() + ", " + am.getNum_of_employees());
+                        Object[] obj = {am.getName(), am.getNum_of_employees()};
+                        tableModel.addRow(obj);
                     }
                 } else if (selection == 2){
                     ArrayList<DiseaseModel> diseaseInfo = infectiousDiseases.getDiseaseInfo();
+                    String[] col = {"Disease_Scientific_Name", "Disease_Type", "Disease_R0"};
+                    DefaultTableModel tableModel = new DefaultTableModel(col, 0);
+                    tableModel.addRow(col);
+                    viewTable.setModel(tableModel);
                     for (DiseaseModel dm : diseaseInfo) {
-                        System.out.println(dm.getScientific_Name() + ", " + dm.getType() + ", " + dm.getR0());
+                        Object[] obj = {dm.getScientific_Name(), dm.getType(), dm.getR0()};
+                        tableModel.addRow(obj);
                     }
                 } else if (selection == 3){
                     ArrayList<TreatsModel> treatsInfo = infectiousDiseases.getTreatsInfo();
+                    String[] col = {"Hospital_Address", "Disease_Scientific_Name"};
+                    DefaultTableModel tableModel = new DefaultTableModel(col, 0);
+                    tableModel.addRow(col);
+                    viewTable.setModel(tableModel);
                     for (TreatsModel tm : treatsInfo) {
-                        System.out.println(tm.getHospital_Address() + ", " + tm.getDisease_Scientific_Name());
+                        Object[] obj = {tm.getHospital_Address(), tm.getDisease_Scientific_Name()};
+                        tableModel.addRow(obj);
                     }
+                } else {
+                    viewTable.setModel(new DefaultTableModel());
                 }
             }
         });

@@ -6,10 +6,8 @@ import ca.ubc.cs304.delegates.UITransactionsDelegate;
 import ca.ubc.cs304.model.*;
 import ca.ubc.cs304.ui.LoginWindow;
 import ca.ubc.cs304.ui.UITransactions;
-import ca.ubc.cs304.ui.UITransactionsOld;
 
 import java.sql.SQLException;
-import java.sql.SQLWarning;
 import java.util.ArrayList;
 
 /**

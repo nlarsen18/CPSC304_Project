@@ -402,8 +402,8 @@ public class DatabaseConnectionHandler76 {
             ResultSet rs = stmt.executeQuery("SELECT * FROM disease");
 
             while(rs.next()){
-                DiseaseModel model = new DiseaseModel(rs.getString("Scientific_Name"),
-                        rs.getString("Type"), rs.getFloat("R0"));
+                DiseaseModel model = new DiseaseModel(rs.getString("Disease_Scientific_Name"),
+                        rs.getString("Disease_Type"), rs.getFloat("Disease_R0"));
 
                 result.add(model);
             }
