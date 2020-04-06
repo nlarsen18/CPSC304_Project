@@ -234,17 +234,14 @@ public class DatabaseConnectionHandler76 {
      *
      * Count the number of Agencies
      */
-    public ArrayList<Integer> countAgencies(){
-        ArrayList<Integer> result = new ArrayList<Integer>();
+    public int countAgencies(){
+        int result = 0;
 
         try{
             Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT COUNT(agency_Name) FROM agency");
-
-            while(rs.next()){
-                result.add(rs.getInt("COUNT_agency_Name"));
-            }
-
+            ResultSet rs = stmt.executeQuery("SELECT COUNT(AGENCY_NAME) FROM AGENCY");
+            rs.next();
+            result = rs.getInt(1);
             rs.close();
             stmt.close();
         } catch (SQLException e) {

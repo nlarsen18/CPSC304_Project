@@ -144,10 +144,14 @@ public class UITransactions extends JFrame {
             public void actionPerformed(ActionEvent actionEvent) {
                 try {
                     ArrayList<String> returnVals = infectiousDiseases.projectAgency(String.valueOf(projectComboBox.getSelectedItem()));
+                    int numAgencies = infectiousDiseases.countAgencies();
                     //Make a DefaultListModel from the arraylist values so we can pass to our JList
                     DefaultListModel<String> model = new DefaultListModel<>();
                     for(String val : returnVals)
                         model.addElement(val);
+                    model.addElement("_____________________________");
+                    model.addElement("Number of agencies: " + numAgencies);
+
                     agencyList.setModel(model);
                 } catch (NullPointerException e) {
                     System.out.println("[EXCEPTION] SQL/Connection Error");

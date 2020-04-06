@@ -42,7 +42,7 @@ public interface UITransactionsDelegate {
     public ArrayList<String> selectDiseaseR0(double r0);
     public ArrayList<String> projectAgency(String col);
     public ArrayList<String> findHospitalsThatTreat(String disease_name);
-    public ArrayList<Integer> countAgencies();
+    public int countAgencies();
     public ArrayList<NestedAgrResultModel> avgR0PerType();
     public ArrayList<String> hospitalsTreatAllDisease();
 }

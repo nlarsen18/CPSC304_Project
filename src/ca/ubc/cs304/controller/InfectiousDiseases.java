@@ -140,7 +140,7 @@ public class InfectiousDiseases implements UITransactionsDelegate, LoginWindowDe
      *
      * Count the number of Agencies
      */
-    public ArrayList<Integer> countAgencies() { return  dbHandler.countAgencies(); }
+    public int countAgencies() { return  dbHandler.countAgencies(); }
 
     /**
      * UIDelegate Implementation
