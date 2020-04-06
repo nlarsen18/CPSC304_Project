@@ -303,7 +303,7 @@ public class DatabaseConnectionHandler {
 
         try{
             Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT disease_Type, AVG(disease_R0 as FLOAT) FROM Disease GROUP BY disease_Type");
+            ResultSet rs = stmt.executeQuery("SELECT disease_Type, AVG(disease_R0) FROM Disease GROUP BY disease_Type");
 
             while(rs.next()){
                 NestedAgrResultModel model = new NestedAgrResultModel(rs.getFloat(2),
