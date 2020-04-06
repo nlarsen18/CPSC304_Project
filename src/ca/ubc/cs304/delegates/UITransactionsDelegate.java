@@ -48,4 +48,6 @@ public interface UITransactionsDelegate {
     public ArrayList<NestedAgrResultModel> avgR0PerType();
     public ArrayList<String> hospitalsTreatAllDisease();
     public ArrayList<TreatsModel> getTreatsInfo();
+    public ArrayList<DiseaseModel> getDiseaseInfo();
+    public ArrayList<AgencyModel> getAgencyInfo();
 }

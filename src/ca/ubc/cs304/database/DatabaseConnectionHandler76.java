@@ -60,7 +60,8 @@ public class DatabaseConnectionHandler76 {
 
             int rowCount = ps.executeUpdate();
             if (rowCount == 0) {
-                System.out.println(WARNING_TAG + " Agency " + name + " does not exist!");
+                throw new SQLException(WARNING_TAG + " Agency " + name + " does not exist!");
+                //System.out.println(WARNING_TAG + " Agency " + name + " does not exist!");
             }
 
             connection.commit();
@@ -81,7 +82,8 @@ public class DatabaseConnectionHandler76 {
 
             int rowCount = ps.executeUpdate();
             if (rowCount == 0) {
-                System.out.println(WARNING_TAG + " hospital at " + address + " doesn't treat " + scientific_Name);
+                throw new SQLException(WARNING_TAG + " hospital at " + address + " doesn't treat " + scientific_Name);
+                //System.out.println(WARNING_TAG + " hospital at " + address + " doesn't treat " + scientific_Name);
             }
 
             connection.commit();
@@ -119,7 +121,8 @@ public class DatabaseConnectionHandler76 {
 
             int rowCount = ps.executeUpdate();
             if (rowCount == 0) {
-                System.out.println(WARNING_TAG + " Agency " + name + " does not exist!");
+                throw new SQLException(WARNING_TAG + " Agency " + name + " does not exist!");
+                //System.out.println(WARNING_TAG + " Agency " + name + " does not exist!");
             }
 
             connection.commit();
@@ -210,7 +213,6 @@ public class DatabaseConnectionHandler76 {
             ResultSet rs = stmt.executeQuery("SELECT " + col + " FROM agency");
 
             while(rs.next()){
-                System.out.println(rs.getString(col));
                 result.add(rs.getString(col));
             }
             System.out.println(result);
@@ -356,6 +358,63 @@ public class DatabaseConnectionHandler76 {
         return result;
     }
 
+    /**
+     * This function allows us to view the Agency table
+     *
+     * Conduct a SELECT * query on the treats table so that we can prove some of
+     * the above queries are dynamic
+     */
+    public ArrayList<AgencyModel> getAgencyInfo(){
+        ArrayList<AgencyModel> result = new ArrayList<AgencyModel>();
+
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM agency");
+
+            while(rs.next()){
+                AgencyModel model = new AgencyModel(rs.getString("agency_Name"),
+                        rs.getInt("agency_Num_Of_Employees"));
+
+                result.add(model);
+            }
+
+            rs.close();
+            stmt.close();
+        } catch (SQLException e) {
+            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+        }
+
+        return result;
+    }
+
+    /**
+     * This function allows us to view the treats table
+     *
+     * Conduct a SELECT * query on the treats table so that we can prove some of
+     * the above queries are dynamic
+     */
+    public ArrayList<DiseaseModel> getDiseaseInfo(){
+        ArrayList<DiseaseModel> result = new ArrayList<DiseaseModel>();
+
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM disease");
+
+            while(rs.next()){
+                DiseaseModel model = new DiseaseModel(rs.getString("Scientific_Name"),
+                        rs.getString("Type"), rs.getFloat("R0"));
+
+                result.add(model);
+            }
+
+            rs.close();
+            stmt.close();
+        } catch (SQLException e) {
+            System.out.println(EXCEPTION_TAG + " " + e.getMessage());
+        }
+
+        return result;
+    }
 
     private void rollbackConnection() {
         try  {

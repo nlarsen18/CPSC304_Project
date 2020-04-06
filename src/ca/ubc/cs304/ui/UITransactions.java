@@ -11,8 +11,9 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.sql.SQLException;
-import java.sql.SQLWarning;
 import java.util.ArrayList;
 
 public class UITransactions extends JFrame {
@@ -21,7 +22,7 @@ public class UITransactions extends JFrame {
     private static final int TEXT_FIELD_WIDTH = 10;
     private InfectiousDiseases infectiousDiseases;
 
-    private JTabbedPane tabbedPane;
+    private JTabbedPane view;
     private JPanel insert;
     private JPanel selection;
     private JButton insertBtn;
@@ -53,12 +54,14 @@ public class UITransactions extends JFrame {
     private JButton findHospitalsBtn;
     private JComboBox findHospitalComboBox;
     private JComboBox deleteComboBox;
+    private JComboBox viewComboBox;
+    private JTable table1;
 
     public UITransactions(InfectiousDiseases infectiousDiseases) {
         super("Pandemic Dashboard");
         this.infectiousDiseases = infectiousDiseases;
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setContentPane(tabbedPane);
+        this.setContentPane(view);
         this.pack();
         r0Slider.setMaximum(1500);
 
@@ -222,6 +225,28 @@ public class UITransactions extends JFrame {
                 for(String val : hospitalsThatTreatAll)
                     model.addElement(val);
                 hospitalList.setModel(model);
+            }
+        });
+        viewComboBox.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent itemEvent) {
+                int selection = viewComboBox.getSelectedIndex();
+                if (selection == 1) {
+                    ArrayList<AgencyModel> agencyInfo = infectiousDiseases.getAgencyInfo();
+                    for (AgencyModel am : agencyInfo) {
+                        System.out.println(am.getName() + ", " + am.getNum_of_employees());
+                    }
+                } else if (selection == 2){
+                    ArrayList<DiseaseModel> diseaseInfo = infectiousDiseases.getDiseaseInfo();
+                    for (DiseaseModel dm : diseaseInfo) {
+                        System.out.println(dm.getScientific_Name() + ", " + dm.getType() + ", " + dm.getR0());
+                    }
+                } else if (selection == 3){
+                    ArrayList<TreatsModel> treatsInfo = infectiousDiseases.getTreatsInfo();
+                    for (TreatsModel tm : treatsInfo) {
+                        System.out.println(tm.getHospital_Address() + ", " + tm.getDisease_Scientific_Name());
+                    }
+                }
             }
         });
     }

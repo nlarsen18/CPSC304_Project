@@ -176,6 +176,19 @@ public class InfectiousDiseases implements UITransactionsDelegate, LoginWindowDe
      */
     public ArrayList<TreatsModel> getTreatsInfo() { return dbHandler.getTreatsInfo(); }
 
+    /**
+     * UIDelegate Implementation
+     *
+     * Get all the info for the agency table
+     */
+    public ArrayList<AgencyModel> getAgencyInfo() { return dbHandler.getAgencyInfo(); }
+
+    /**
+     * UIDelegate Implementation
+     *
+     * Get all the info for the disease table
+     */
+    public ArrayList<DiseaseModel> getDiseaseInfo() { return dbHandler.getDiseaseInfo(); }
 
     public void UIFinished(){
         dbHandler.close();
