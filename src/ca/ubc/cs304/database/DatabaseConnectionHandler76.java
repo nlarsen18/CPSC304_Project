@@ -236,8 +236,8 @@ public class DatabaseConnectionHandler76 {
         System.out.println(disease_name.getClass().getName());
         try{
             Statement stmt = connection.createStatement();
-            System.out.println("SELECT h.hospital_Name FROM HOSPITAL h, TREATS t WHERE h.hospital_Address = t.hospital_Address AND t.disease_Scientific_Name = \"" + disease_name + "\"");
-            ResultSet rs = stmt.executeQuery("SELECT hospital_Name FROM hospital h, treats t WHERE h.hospital_Address = t.hospital_Address AND t.disease_Scientific_Name = " + disease_name);
+            //System.out.println("SELECT h.hospital_Name FROM HOSPITAL h, TREATS t WHERE h.hospital_Address = t.hospital_Address AND t.disease_Scientific_Name = \"" + disease_name + "\"");
+            ResultSet rs = stmt.executeQuery("SELECT hospital_Name FROM hospital h, treats t WHERE h.hospital_Address = t.hospital_Address AND t.disease_Scientific_Name = \'" + (String)disease_name + "\'");
             System.out.println("executedQuery");
             while(rs.next()){
                 result.add(rs.getString("hospital_Name"));
@@ -312,10 +312,10 @@ public class DatabaseConnectionHandler76 {
 
         try{
             Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT hospital_Name FROM hospital H" +
-                    "WHERE NOT EXISTS ((SELECT D.disease_Scientific_Name FROM disease D) EXCEPT (SELECT T.disease_Scientific_Name FROM treats T WHERE  T.hospital_Address = H.hospital_Address))");
+            ResultSet rs = stmt.executeQuery("SELECT hospital_Name FROM hospital H WHERE NOT EXISTS ((SELECT D.disease_Scientific_Name FROM disease D) MINUS (SELECT T.disease_Scientific_Name FROM treats T WHERE  T.hospital_Address = H.hospital_Address))");
 
             while(rs.next()){
+
                 result.add(rs.getString("hospital_Name"));
             }
 
