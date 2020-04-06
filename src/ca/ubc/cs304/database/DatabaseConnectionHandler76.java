@@ -75,7 +75,7 @@ public class DatabaseConnectionHandler76 {
 
     public void deleteTreats(String address, String scientific_Name) throws SQLException {
         try {
-            PreparedStatement ps = connection.prepareStatement("DELETE FROM treats WHERE hospital_address = ? AND disease_Scientific_Name = ?");
+            PreparedStatement ps = connection.prepareStatement("DELETE FROM treats WHERE hospital_Address = ? AND disease_Scientific_Name = ?");
             ps.setString(1, address);
             ps.setString(2, scientific_Name);
 
