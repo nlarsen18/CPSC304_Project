@@ -24,9 +24,9 @@
             </constraints>
             <properties>
               <model>
-                <item value="AGENCY"/>
-                <item value="DISEASE"/>
-                <item value="TREATS"/>
+                <item value="AGENCY(agency_name, agency_num_of_employees)"/>
+                <item value="DISEASE(disease_scientific_name, disease_type, disease_r0)"/>
+                <item value="TREATS(hospital_address, disease_scientific_name)"/>
               </model>
               <toolTipText value="Choose table"/>
             </properties>
@@ -48,7 +48,7 @@
               <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Text"/>
+              <text value=""/>
             </properties>
           </component>
           <vspacer id="5461d">
@@ -81,7 +81,7 @@
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Tuple to insert (separate values with commas)"/>
+              <text value="Tuple to insert (separate values with forward slashes and no spaces)"/>
             </properties>
           </component>
         </children>
@@ -230,7 +230,7 @@
               <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Text"/>
+              <text value=""/>
             </properties>
           </component>
         </children>
@@ -292,7 +292,7 @@
               <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Text"/>
+              <text value=""/>
             </properties>
           </component>
           <component id="26f43" class="javax.swing.JComboBox" binding="deleteComboBox">
@@ -301,8 +301,9 @@
             </constraints>
             <properties>
               <model>
-                <item value="AGENCY"/>
-                <item value="TREATS"/>
+                <item value="AGENCY(*agency_name*, agency_num_of_employees)"/>
+                <item value="DISEASE(*disease_scientific_name*, disease_type, disease_r0)"/>
+                <item value="TREATS(*hospital_address, disease_scientific_name*)"/>
               </model>
             </properties>
           </component>
@@ -394,9 +395,7 @@
         <children>
           <component id="4ba48" class="javax.swing.JComboBox" binding="findHospitalComboBox">
             <constraints>
-              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="-1" height="50"/>
-              </grid>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <model>
@@ -495,9 +494,9 @@
             <properties>
               <model>
                 <item value="None"/>
-                <item value="AGENCY"/>
-                <item value="DISEASE"/>
-                <item value="TREATS"/>
+                <item value="AGENCY(*agency_name*, agency_num_of_employees)"/>
+                <item value="DISEASE(*disease_scientific_name*, disease_type, disease_r0)"/>
+                <item value="TREATS(*hospital_address, disease_scientific_name*)"/>
                 <item value="Avg R0 by type"/>
               </model>
             </properties>

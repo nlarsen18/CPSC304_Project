@@ -73,11 +73,10 @@ public class UITransactions extends JFrame {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 String input = tupleText.getText();
-                String selection = String.valueOf(selectInsert.getSelectedItem());
+                int selection = selectInsert.getSelectedIndex();
 
-                if (selection.equals("AGENCY")){
-
-                    String[] splitInput = input.split(",|,_|/|/_", 2);
+                if (selection == 0){
+                    String[] splitInput = input.split(",|, |/|/ ", 2);
                     try {
                         AgencyModel agencyModel = new AgencyModel(splitInput[0], Integer.valueOf(splitInput[1]));
                         try {
@@ -89,8 +88,8 @@ public class UITransactions extends JFrame {
                     } catch (ArrayIndexOutOfBoundsException e){
                         insertedLbl.setText(e.getMessage());
                     }
-                } else if (selection.equals("DISEASE")){
-                    String[] splitInput = input.split(",|,_|/|/_", 3);
+                } else if (selection == 1){
+                    String[] splitInput = input.split(",|, |/|/ ", 3);
                     try {
                         DiseaseModel diseaseModel = new DiseaseModel(splitInput[0], splitInput[1], Float.valueOf(splitInput[2]));
                         try {
@@ -103,7 +102,7 @@ public class UITransactions extends JFrame {
                         insertedLbl.setText(e.getMessage());
                     }
                 } else {
-                    String[] splitInput = input.split("/|/_", 2);
+                    String[] splitInput = input.split("/|/ ", 2);
                     try{
                         TreatsModel treatsModel = new TreatsModel(splitInput[0], splitInput[1]);
                         try {
@@ -123,7 +122,6 @@ public class UITransactions extends JFrame {
             public void actionPerformed(ActionEvent actionEvent) {
                 //get the r0Val from the slider
                 double r0Val = r0Slider.getValue()/100.0;
-                System.out.println(r0Val);
                 try {
                     //get a list of names of diseases whose R0 values are at least r0Val
                     ArrayList<String> diseases = infectiousDiseases.selectDiseaseR0(r0Val);
@@ -169,28 +167,36 @@ public class UITransactions extends JFrame {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 int selection = deleteComboBox.getSelectedIndex();
-                System.out.println(selection);
 
                 if (selection == 0) {
                     String[] cleanIn = deleteIn.getText().split("[^A-Za-z0-9 ].");
                     if (!String.valueOf(cleanIn[0].charAt(cleanIn[0].length()-1)).matches("[A-Za-z0-9_]"))
                         cleanIn[0] = cleanIn[0].substring(0, cleanIn[0].length()-1);
                     String agencyName = cleanIn[0];
-                    System.out.println(agencyName);
-
                     try {
                         infectiousDiseases.deleteAgency(agencyName);
+                        deleteLbl.setText("Deleted " + agencyName + " from AGENCY.");
                     } catch (SQLException e){
-                        deleteLbl.setText(e.getMessage());
-                        System.out.println(e.getMessage());
+                        deleteLbl.setText("There was an error deleting the tuple.");
+                    }
+                } else if (selection == 1) {
+                    String[] cleanIn = deleteIn.getText().split("[^A-Za-z0-9 ].");
+                    if (!String.valueOf(cleanIn[0].charAt(cleanIn[0].length()-1)).matches("[A-Za-z0-9_]"))
+                        cleanIn[0] = cleanIn[0].substring(0, cleanIn[0].length()-1);
+                    String diseaseSciName = cleanIn[0];
+                    try {
+                        infectiousDiseases.deleteDisease(diseaseSciName);
+                        deleteLbl.setText("Deleted " + diseaseSciName + " from DISEASE.");
+                    } catch (SQLException e){
+                        deleteLbl.setText("There was an error deleting the tuple.");
                     }
                 } else {
                     String[] treatsKey = deleteIn.getText().split("/");
                     try {
                         infectiousDiseases.deleteTreats(treatsKey[0], treatsKey[1]);
+                        deleteLbl.setText("Deleted " + treatsKey + " from TREATS.");
                     } catch (SQLException e){
-                        deleteLbl.setText(e.getMessage());
-                        System.out.println(e.getMessage());
+                        deleteLbl.setText("There was an error deleting the tuple.");
                     }
                 }
 
@@ -277,10 +283,4 @@ public class UITransactions extends JFrame {
             }
         });
     }
-
-    public static void main(String[] args) {
-        JFrame frame = new UITransactions(new InfectiousDiseases());
-        frame.setVisible(true);
-    }
-
 }

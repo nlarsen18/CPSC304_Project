@@ -1,6 +1,6 @@
 package ca.ubc.cs304.controller;
 
-import ca.ubc.cs304.database.DatabaseConnectionHandler76;
+import ca.ubc.cs304.database.DatabaseConnectionHandler;
 import ca.ubc.cs304.delegates.LoginWindowDelegate;
 import ca.ubc.cs304.delegates.UITransactionsDelegate;
 import ca.ubc.cs304.model.*;
@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 
 public class InfectiousDiseases implements UITransactionsDelegate, LoginWindowDelegate {
-    private DatabaseConnectionHandler76 dbHandler = null;
+    private DatabaseConnectionHandler dbHandler = null;
     private LoginWindow loginWindow = null;
 
     private void start(){
@@ -45,7 +45,7 @@ public class InfectiousDiseases implements UITransactionsDelegate, LoginWindowDe
         }
     }
 
-    public InfectiousDiseases() { dbHandler = new DatabaseConnectionHandler76(); }
+    public InfectiousDiseases() { dbHandler = new DatabaseConnectionHandler(); }
 
     /**
      * UIDelegate Implementation
@@ -55,6 +55,19 @@ public class InfectiousDiseases implements UITransactionsDelegate, LoginWindowDe
     public void deleteAgency(String name) throws SQLException {
         try {
             dbHandler.deleteAgency(name);
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
+
+    /**
+     * UIDelegate Implementation
+     *
+     * Delete disease with given disease name
+     */
+    public void deleteDisease(String name) throws SQLException {
+        try {
+            dbHandler.deleteDisease(name);
         } catch (SQLException e) {
             throw e;
         }
