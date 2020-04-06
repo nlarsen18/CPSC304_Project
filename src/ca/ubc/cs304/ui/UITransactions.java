@@ -48,6 +48,10 @@ public class UITransactions extends JFrame {
     private JTextField updateANOE;
     private JButton updateBtn;
     private JLabel updateEx;
+    private JLabel findHospitalsLbl;
+    private JList hospitalList;
+    private JButton findHospitalsBtn;
+    private JComboBox findHospitalComboBox;
 
     public UITransactions(InfectiousDiseases infectiousDiseases) {
         super("Pandemic Dashboard");
@@ -145,7 +149,6 @@ public class UITransactions extends JFrame {
                     for(String val : returnVals)
                         model.addElement(val);
                     agencyList.setModel(model);
-                    //throw new NullPointerException();
                 } catch (NullPointerException e) {
                     System.out.println("[EXCEPTION] SQL/Connection Error");
                 }
@@ -181,6 +184,18 @@ public class UITransactions extends JFrame {
                 } catch (SQLException e) {
                     updateEx.setText(e.getMessage());
                 }
+            }
+        });
+        findHospitalsBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                String disease = String.valueOf(findHospitalComboBox.getSelectedItem());
+                ArrayList<String> returnVals = infectiousDiseases.findHospitalsThatTreat(disease);
+                //Make a DefaultListModel from the arraylist values so we can pass to our JList
+                DefaultListModel<String> model = new DefaultListModel<>();
+                for(String val : returnVals)
+                    model.addElement(val);
+                hospitalList.setModel(model);
             }
         });
     }
