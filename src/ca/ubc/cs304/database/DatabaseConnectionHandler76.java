@@ -233,11 +233,12 @@ public class DatabaseConnectionHandler76 {
     public ArrayList<String> findHospitalsThatTreat(String disease_name){
         ArrayList<String> result = new ArrayList<String>();
         System.out.println(disease_name);
+        System.out.println(disease_name.getClass().getName());
         try{
             Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT h.hospital_Name FROM HOSPITAL h, TREATS t WHERE h.hospital_Address = t.hospital_Address AND h.disease_Scientific_Name = \"" + disease_name + "\"");
-
-
+            System.out.println("SELECT h.hospital_Name FROM HOSPITAL h, TREATS t WHERE h.hospital_Address = t.hospital_Address AND t.disease_Scientific_Name = \"" + disease_name + "\"");
+            ResultSet rs = stmt.executeQuery("SELECT hospital_Name FROM hospital h, treats t WHERE h.hospital_Address = t.hospital_Address AND t.disease_Scientific_Name = " + disease_name);
+            System.out.println("executedQuery");
             while(rs.next()){
                 result.add(rs.getString("hospital_Name"));
             }
