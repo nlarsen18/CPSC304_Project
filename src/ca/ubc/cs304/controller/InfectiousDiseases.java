@@ -65,6 +65,19 @@ public class InfectiousDiseases implements UITransactionsDelegate, LoginWindowDe
     /**
      * UIDelegate Implementation
      *
+     * Delete treats with a given address and disease scientific name
+     */
+    public void deleteTreats(String address, String scientific_Name) throws SQLException {
+        try {
+            dbHandler.deleteTreats(address, scientific_Name);
+        } catch (SQLException e) {
+            throw e;
+        }
+    }
+
+    /**
+     * UIDelegate Implementation
+     *
      * Insert a agency with the given info
      */
     public void insertAgency(AgencyModel model) throws SQLException{
@@ -156,6 +169,12 @@ public class InfectiousDiseases implements UITransactionsDelegate, LoginWindowDe
      */
     public ArrayList<String> hospitalsTreatAllDisease(){ return dbHandler.hospitalsTreatAllDisease(); }
 
+    /**
+     * UIDelegate Implementation
+     *
+     * Get all the info for the treats table
+     */
+    public ArrayList<TreatsModel> getTreatsInfo() { return dbHandler.getTreatsInfo(); }
 
 
     public void UIFinished(){

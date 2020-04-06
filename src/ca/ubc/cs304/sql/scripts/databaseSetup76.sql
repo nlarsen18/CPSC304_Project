@@ -3,6 +3,7 @@
   drop table Agency cascade constraints;
  */
 
+
 drop table route;
 drop table governs;
 drop table infected_with;
@@ -24,7 +25,7 @@ drop table doctor;
 drop table hospital;
 drop table disease;
 drop table agency;
-
+commit work;
 
  /**
    HAVE TO MAKE SURE that tables are created in
@@ -38,34 +39,38 @@ CREATE TABLE agency (
     agency_Name varchar2(100) PRIMARY KEY ,
     agency_num_of_employees integer
 );
-grant select on agency to public;
-
+commit work;
 
 CREATE TABLE disease (
     disease_Scientific_Name varchar2(100) PRIMARY KEY,
     disease_Type varchar2(100),
     disease_R0 float(3)
 );
+commit work;
 CREATE TABLE hospital(
     hospital_Address varchar2(100) PRIMARY KEY,
     hospital_Capacity integer,
     hospital_Name varchar2(100),
     hospital_Type varchar2(100)
 );
+commit work;
 CREATE TABLE doctor(
     doctor_ID integer PRIMARY KEY,
     doctor_Name varchar2(100)
 );
+commit work;
 CREATE TABLE government(
     government_Gov_ID integer PRIMARY KEY,
     government_Public_Health_Budget integer
 );
+commit work;
 CREATE TABLE location_continent(
     location_continent_LAT float(5),
     location_continent_LON float(5),
     location_continent_Continent varchar2(100),
     PRIMARY KEY(location_continent_LAT, location_continent_LON)
 );
+commit work;
 /*Confused here if Name should also be part of the primary
   key based off of schema and ERD. CHECK WITH TA!!!
  */
@@ -76,7 +81,7 @@ CREATE TABLE location_name_pop(
     location_name_pop_Population integer,
     PRIMARY KEY(location_name_pop_Name,location_name_pop_LAT, location_name_pop_LON)
 );
-commit;
+commit work;
 
 CREATE TABLE city(
     location_name_pop_Name varchar2(100),
@@ -87,7 +92,7 @@ CREATE TABLE city(
     FOREIGN KEY(location_name_pop_Name, location_name_pop_LAT, location_name_pop_LON) REFERENCES location_name_pop(location_name_pop_Name, location_name_pop_LAT, location_name_pop_LON)
     ON DELETE CASCADE
 );
-
+commit work;
 
 CREATE TABLE region(
     location_name_pop_Name varchar2(100),
@@ -109,13 +114,13 @@ CREATE TABLE country(
     FOREIGN KEY(location_name_pop_Name, location_name_pop_LAT, location_name_pop_LON) REFERENCES location_name_pop(location_name_pop_Name, location_name_pop_LAT, location_name_pop_LON)
     ON DELETE CASCADE
 );
-
+commit work;
 CREATE TABLE transportation(
     transportation_Transportation_ID varchar2(100) PRIMARY KEY,
     transportation_Type varchar2(100),
     transportation_Passenger_Count integer
 );
-
+commit work;
 
  CREATE TABLE operates_research_lab(
     operates_research_lab_RName varchar2(100),
@@ -125,7 +130,7 @@ CREATE TABLE transportation(
     FOREIGN KEY(agency_Name) REFERENCES agency
     ON DELETE CASCADE
 );
-
+commit work;
 CREATE TABLE researches_biohl(
     agency_Name varchar2(100),
     researches_biohl_Bio_Hazard_Level integer,
@@ -133,7 +138,7 @@ CREATE TABLE researches_biohl(
     FOREIGN KEY(agency_Name) REFERENCES agency
     ON DELETE CASCADE
 );
-
+commit work;
 CREATE TABLE researches_pname(
     disease_Scientific_Name varchar2(100),
     agency_Name varchar2(100),
@@ -142,7 +147,7 @@ CREATE TABLE researches_pname(
     FOREIGN KEY (disease_Scientific_Name) REFERENCES disease ON DELETE CASCADE ,
     FOREIGN KEY (agency_Name) REFERENCES agency ON DELETE CASCADE
 );
-
+commit work;
 CREATE TABLE worksfor_doctor(
     worksfor_doctor_ID integer,
     hospital_address varchar2(100) not null,
@@ -151,7 +156,7 @@ CREATE TABLE worksfor_doctor(
     FOREIGN KEY (hospital_address) REFERENCES hospital
     ON DELETE CASCADE
 );
-
+commit work;
 CREATE TABLE caresfor_patient(
     caresfor_patient_PID integer PRIMARY KEY,
     caresfor_patient_Name varchar2(100),
@@ -163,6 +168,7 @@ CREATE TABLE caresfor_patient(
     FOREIGN KEY (disease_Scientific_Name) REFERENCES disease
     ON DELETE CASCADE
 );
+commit work;
 CREATE TABLE treats(
     hospital_Address varchar2(100),
     disease_Scientific_Name varchar2(100),
@@ -170,6 +176,7 @@ CREATE TABLE treats(
     FOREIGN KEY (hospital_Address) REFERENCES hospital ON DELETE CASCADE,
     FOREIGN KEY (disease_Scientific_Name) REFERENCES disease ON DELETE CASCADE
 );
+commit work;
 CREATE TABLE certifies(
     doctor_ID integer,
     government_Gov_ID integer,
@@ -178,7 +185,7 @@ CREATE TABLE certifies(
     FOREIGN KEY (doctor_ID) REFERENCES doctor ON DELETE CASCADE,
     FOREIGN KEY (government_Gov_ID) REFERENCES government ON DELETE CASCADE
 );
-
+commit work;
 CREATE TABLE infected_with(
     location_name_pop_Name varchar2(100),
     location_name_pop_LAT float(5),
@@ -190,6 +197,7 @@ CREATE TABLE infected_with(
     FOREIGN KEY (location_name_pop_Name, location_name_pop_LAT, location_name_pop_LON) REFERENCES location_name_pop ON DELETE CASCADE,
     FOREIGN KEY (disease_Scientific_Name) REFERENCES disease ON DELETE CASCADE
 );
+commit work;
 CREATE TABLE governs(
     government_Gov_ID integer,
     location_name_pop_Name varchar2(100),
@@ -199,6 +207,7 @@ CREATE TABLE governs(
     FOREIGN KEY (government_Gov_ID) REFERENCES government ON DELETE CASCADE,
     FOREIGN KEY (location_name_pop_Name, location_name_pop_LAT, location_name_pop_LON) REFERENCES location_name_pop ON DELETE CASCADE
 );
+commit work;
 CREATE TABLE route(
     location_name_pop_Name_Start varchar2(100),
     location_name_pop_LAT_Start float(5),
@@ -213,7 +222,7 @@ CREATE TABLE route(
     FOREIGN KEY (location_name_pop_Name_End, location_name_pop_LAT_End, location_name_pop_LON_End) REFERENCES location_name_pop(location_name_pop_Name, location_name_pop_LAT, location_name_pop_LON) ON DELETE CASCADE,
     FOREIGN KEY (transportation_Transportation_ID) REFERENCES transportation ON DELETE CASCADE
 );
-
+commit work;
 INSERT INTO agency VALUES ('World Health Organization', 7000);
 INSERT INTO agency VALUES ('Centers for Disease Control and Prevention', 10899);
 INSERT INTO agency VALUES ('Department of Health and Human Services', 3000);

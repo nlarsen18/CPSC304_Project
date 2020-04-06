@@ -4,6 +4,7 @@ import ca.ubc.cs304.model.AgencyModel;
 import ca.ubc.cs304.model.DiseaseModel;
 import ca.ubc.cs304.model.NestedAgrResultModel;
 import ca.ubc.cs304.model.TreatsModel;
+import ca.ubc.cs304.ui.TerminalTransactions;
 
 import java.sql.SQLException;
 import java.sql.SQLWarning;
@@ -35,6 +36,7 @@ public interface UITransactionsDelegate {
      */
 
     public void deleteAgency(String name) throws SQLException;
+    public void deleteTreats(String address, String scientific_Name) throws SQLException;
     public void insertAgency(AgencyModel model) throws SQLException;
     public void insertDisease(DiseaseModel model) throws SQLException;
     public void insertTreats(TreatsModel model) throws SQLException;
@@ -45,4 +47,5 @@ public interface UITransactionsDelegate {
     public int countAgencies();
     public ArrayList<NestedAgrResultModel> avgR0PerType();
     public ArrayList<String> hospitalsTreatAllDisease();
+    public ArrayList<TreatsModel> getTreatsInfo();
 }

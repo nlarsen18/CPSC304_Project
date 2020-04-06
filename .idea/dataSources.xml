@@ -8,5 +8,12 @@
       <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
       <jdbc-url>jdbc:oracle:thin:@dbhost.students.cs.ubc.ca:1522:stu</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="@dbhost.students.cs.ubc.ca [2]" uuid="424f5a8e-30b1-406e-83b4-1c627048975a">
+      <driver-ref>oracle</driver-ref>
+      <synchronize>true</synchronize>
+      <auto-commit>false</auto-commit>
+      <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
+      <jdbc-url>jdbc:oracle:thin:@dbhost.students.cs.ubc.ca:1522:stu</jdbc-url>
+    </data-source>
   </component>
 </project>
