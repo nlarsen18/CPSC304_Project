@@ -342,7 +342,7 @@ INSERT INTO caresfor_patient VALUES (3, 'Susan Smith', '4738 Oaky Rd, Dokey', 'T
 INSERT INTO caresfor_patient VALUES (4,' Amy Sneedley', '1938 Pupper Pl, Bonetown', 'Malaria', {d '2020-02-21'}, 3);
 commit work;
 INSERT INTO treats VALUES ('5783 Notreal Rd, Nowhereville','COVID-19');
-INSERT INTO treats VALUES ('5783 Notreal Rd, Nowhereville','Tuberculosis');
+INSERT INTO treats VALUES ('5783 Notreal Rd, Nowhereville', 'Tuberculosis');
 INSERT INTO treats VALUES ('5783 Notreal Rd, Nowhereville', 'Norovirus');
 INSERT INTO treats VALUES ('5783 Notreal Rd, Nowhereville', 'Malaria');
 INSERT INTO treats VALUES ('5783 Notreal Rd, Nowhereville', 'Swine Flu');
