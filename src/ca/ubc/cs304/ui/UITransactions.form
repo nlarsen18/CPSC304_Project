@@ -498,6 +498,7 @@
                 <item value="AGENCY"/>
                 <item value="DISEASE"/>
                 <item value="TREATS"/>
+                <item value="Avg R0 by type"/>
               </model>
             </properties>
           </component>

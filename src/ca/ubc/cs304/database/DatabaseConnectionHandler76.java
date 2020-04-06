@@ -290,8 +290,8 @@ public class DatabaseConnectionHandler76 {
             ResultSet rs = stmt.executeQuery("SELECT disease_Type, AVG(disease_R0) FROM Disease GROUP BY disease_Type");
 
             while(rs.next()){
-                NestedAgrResultModel model = new NestedAgrResultModel(rs.getFloat("AVG_disease_R0"),
-                                                                      rs.getString("disease_Type"));
+                NestedAgrResultModel model = new NestedAgrResultModel(rs.getFloat(2),
+                                                                      rs.getString(1));
                 result.add(model);
             }
 

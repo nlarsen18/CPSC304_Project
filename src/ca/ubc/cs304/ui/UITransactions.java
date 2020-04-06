@@ -4,6 +4,7 @@ import ca.ubc.cs304.controller.InfectiousDiseases;
 import ca.ubc.cs304.delegates.UITransactionsDelegate;
 import ca.ubc.cs304.model.AgencyModel;
 import ca.ubc.cs304.model.DiseaseModel;
+import ca.ubc.cs304.model.NestedAgrResultModel;
 import ca.ubc.cs304.model.TreatsModel;
 
 import javax.swing.*;
@@ -238,7 +239,6 @@ public class UITransactions extends JFrame {
                     ArrayList<AgencyModel> agencyInfo = infectiousDiseases.getAgencyInfo();
                     String[] col = {"Agency_Name", "Agency_Num_Of_Employees"};
                     DefaultTableModel tableModel = new DefaultTableModel(col, 0);
-                    tableModel.addRow(col);
                     viewTable.setModel(tableModel);
                     for (AgencyModel am : agencyInfo) {
                         Object[] obj = {am.getName(), am.getNum_of_employees()};
@@ -248,7 +248,6 @@ public class UITransactions extends JFrame {
                     ArrayList<DiseaseModel> diseaseInfo = infectiousDiseases.getDiseaseInfo();
                     String[] col = {"Disease_Scientific_Name", "Disease_Type", "Disease_R0"};
                     DefaultTableModel tableModel = new DefaultTableModel(col, 0);
-                    tableModel.addRow(col);
                     viewTable.setModel(tableModel);
                     for (DiseaseModel dm : diseaseInfo) {
                         Object[] obj = {dm.getScientific_Name(), dm.getType(), dm.getR0()};
@@ -258,10 +257,18 @@ public class UITransactions extends JFrame {
                     ArrayList<TreatsModel> treatsInfo = infectiousDiseases.getTreatsInfo();
                     String[] col = {"Hospital_Address", "Disease_Scientific_Name"};
                     DefaultTableModel tableModel = new DefaultTableModel(col, 0);
-                    tableModel.addRow(col);
                     viewTable.setModel(tableModel);
                     for (TreatsModel tm : treatsInfo) {
                         Object[] obj = {tm.getHospital_Address(), tm.getDisease_Scientific_Name()};
+                        tableModel.addRow(obj);
+                    }
+                } else if (selection == 4) {
+                    ArrayList<NestedAgrResultModel> nestedAgrResultModel = infectiousDiseases.avgR0PerType();
+                    String[] col = {"Disease Type", "Average R0"};
+                    DefaultTableModel tableModel = new DefaultTableModel(col, 0);
+                    viewTable.setModel(tableModel);
+                    for (NestedAgrResultModel narm : nestedAgrResultModel) {
+                        Object[] obj = {narm.getType(), narm.getAvgR0()};
                         tableModel.addRow(obj);
                     }
                 } else {
